@@ -1,0 +1,37 @@
+export const DepartmentCards =[
+    {   
+        id:"1", 
+        title:"CSE",
+        image:require("../../assests/welcome-screen.png")   
+    },
+    {  
+        id:"2",
+        title:"ECE",
+        image:require("../../assests/welcome-screen.png")   
+    },
+    {
+        id:"3",
+        title:"EEE",
+        image:require("../../assests/welcome-screen.png")   
+    },
+    {
+        id:"4",
+        title:"AREO",
+        image:require("../../assests/welcome-screen.png")   
+    },
+    {
+        id:"5",
+        title:"MECH",
+        image:require("../../assests/welcome-screen.png")   
+    },
+    {
+        id:"6",
+        title:"BIO-MEDICAL",
+        image:require("../../assests/welcome-screen.png")   
+    },
+    {
+        id:"7",
+        title:"AI",
+        image:require("../../assests/welcome-screen.png")   
+    },
+]
