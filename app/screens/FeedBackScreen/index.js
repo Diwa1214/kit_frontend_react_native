@@ -24,9 +24,10 @@ export default function FeedBack() {
               righAction={() => {
                 return <View style={{width: 70, backgroundColor: 'red',justifyContent:"center",alignItems:"center"}} >
                  <MaterialCommunityIcons name="delete" color="white" size={30} onPress={()=>{
-                      DataFeedBack.filter((items)=>{
-                        return item.id ===items.id
-                     })
+                    //   DataFeedBack.filter((items)=>{
+                    //     return item.id !==items.id
+                    //  })
+                    console.log("dlete");
                  }} />
                 </View>;
               }}

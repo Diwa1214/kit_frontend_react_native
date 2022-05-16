@@ -4,7 +4,7 @@ import { Swipeable } from 'react-native-gesture-handler'
 
 export default function FeedCard(props) {
     return (
-             <Swipeable renderRightActions={props.righAction}>
+    <Swipeable renderRightActions={props.righAction}>
                   <TouchableHighlight underlayColor="#ffff" onPress={props.onPress} >
           <View style={styles.FeedBack}>
               
@@ -21,7 +21,7 @@ export default function FeedCard(props) {
              
            </View>
             </TouchableHighlight>
-             </Swipeable>
+   </Swipeable>
             
         
        

@@ -12,7 +12,7 @@ const ResultScreen = (props) => {
     return (
         <View style={Styles.container}>
            <View style={{flex:1}} >
-               <ResultComponent item ={data.data}/>
+               <ResultComponent item ={data}/>
           </View>
         </View>
     )
@@ -22,6 +22,8 @@ const Styles = StyleSheet.create({
         //justifyContent:"center",
         alignItems:"center",
         flex:1,
+        backgroundColor:"red",
+        width:"100%",
         padding:20
     },
     

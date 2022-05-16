@@ -10,8 +10,6 @@ export default PostApi = () => {
   const [error,setError] =useState("")
 
 
-  
-
 
   const callback =async(pro,endpoint,id,...argu)=>{
      console.log(endpoint);
@@ -24,7 +22,6 @@ export default PostApi = () => {
     else{
       url = `${Url.host}/${endpoint}?id=${id}`
     }
-    console.log(url,"argument");
     try {
       setData("")
       setError("")
@@ -36,10 +33,10 @@ export default PostApi = () => {
          },
           
        }) 
-       console.log(response.data,"msg");
+       console.log(response.data.status === '200');
        if(response.data.status == "200"){
-         setData(response.data)
          setLoading(false)
+        return setData(response.data)
       }
       if(response.data.status =="404" || response.data.status =="500"){
         response.data.msg ?  setError( response.data.msg) : setError("Network failed")

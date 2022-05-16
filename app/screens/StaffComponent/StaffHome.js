@@ -23,13 +23,27 @@ const cardDetails =[
    {
    id:1,  
    title:"Add Result",
-   navigate:"AddStudent"
+   navigate:"AddStudent",
+   disabled:false,
    },
    {
     id:2,  
-    title:"Staff Screen",
-    navigate:"StaffScreen"
+    title:"CIA",
+    navigate:"StaffScreen",
+    disabled:false,
     },
+    {
+      id:3,
+      title:"Upload ",
+      navigate:"student",
+      disabled:false,
+    },
+    {
+      id:4,
+      title:"Students",
+      navigate:"studentSplash",
+      disabled:false,
+    }
   
 ]
  const _renderItem = ({item, index}, parallaxProps)=> {
@@ -68,7 +82,7 @@ const cardDetails =[
                return (
                 <TouchableOpacity style={styles.DetailsCardContainer}  onPress={()=>{
                     props.navigation.navigate(item.navigate)
-                   }}>
+                   }} disabled={item.disabled}>
                   <Text style={styles.cardText}>{item.title}</Text>
                   <MaterialCommunityIcons name="arrow-expand-all"  size={17} color={color.primary}/>
                </TouchableOpacity>

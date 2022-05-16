@@ -12,6 +12,7 @@ import WelcomeScreen from "../screens/WelcomeStack/welcomeScreen"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import color from "../screens/color/color"
 import { TabNavigator } from "./TabNavigator"
+import ResultComponent from "../screens/WelcomeStack/component/ResultComponent"
 
 const Stack = createNativeStackNavigator()
 
@@ -20,17 +21,22 @@ const tab = createBottomTabNavigator()
   
  const HomeScreenNavigator = ()=>{
    return(
-  <Stack.Navigator  >
+  <Stack.Navigator>
       <Stack.Screen name="home" component={TabNavigator} 
       options={{headerShown:false,headerStyle:{backgroundColor:color.primary},headerTintColor:"white"}}/>
+
       <Stack.Screen name="Academic" component={AcademicScreen} options={{headerShown:true}} 
        options={{headerShown:true,headerStyle:{backgroundColor:color.primary},headerTintColor:"white"}} />
-      <Stack.Screen name="Result" component={ResultScreen} options={{headerShown:true,mode:"card"}}
+
+      <Stack.Screen name="Result" component={ResultComponent} options={{headerShown:true,mode:"card"}}
        options={{headerShown:true,headerStyle:{backgroundColor:color.primary},headerTintColor:"white"}}/>
+
       <Stack.Screen name="Placement" component={PlacementScreen} options={{headerShown:true}}
        options={{headerShown:true,headerStyle:{backgroundColor:color.primary},headerTintColor:"white"}}/>
+       
       <Stack.Screen name="News" component={NewsScreen} options={{headerShown:true}}
        options={{headerShown:true,headerStyle:{backgroundColor:color.primary},headerTintColor:"white"}}/>
+       
       <Stack.Screen name="StudentLogin" component={StudentLogin} options={{headerShown:true}}
        options={{headerShown:true,headerStyle:{backgroundColor:color.primary},headerTintColor:"white"}}/>
    </Stack.Navigator>

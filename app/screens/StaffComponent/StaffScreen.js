@@ -41,7 +41,7 @@ const StaffScreen = (props) => {
       
    },[loading,deleteItem,text])
   
-   console.log(error,"detard");
+   console.log(data,"detard");
 
 
     const handleDelete =(id)=>{

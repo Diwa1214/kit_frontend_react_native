@@ -7,7 +7,7 @@ export const college = [
    {
       id:1,
       logo:require("../../assests/welcome-screen.png"),
-      name:"KIT-College"
+      name:"KIT-KALAIGNAR KARUNANIDHI INSTITUTE OF TECHNOLOGY"
    },
    {
       id:2,

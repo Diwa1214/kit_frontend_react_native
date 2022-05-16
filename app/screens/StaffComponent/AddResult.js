@@ -16,6 +16,7 @@ import {GetApi} from "../../../api/GetApi"
 import Toast from 'react-native-toast-message'
 import ToastComponent from '../Component/ToastComponent'
 import { useCallback } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 
 const AddResult = (props) => {
@@ -33,6 +34,7 @@ const AddResult = (props) => {
     )
     let subject =[]
     const [uploadScreen,SetUploadScreen] = React.useState(false)
+    let navigate = useNavigation()
     const [subjectmark, setSubjectMark] = React.useState([])
     const [progress,setProgress] = React.useState(0)
     const id = props.route?.params?.id
@@ -63,6 +65,8 @@ const AddResult = (props) => {
       }
         setTimeout(()=>{
         SetUploadScreen(false)
+        navigate.navigate("admin")
+
        },3100)
     }
 

@@ -33,7 +33,7 @@ const ModalComponent = (props) => {
                       accessibilityRole={  'radio'} 
                       style={{flexDirection:"row",
                       justifyContent:"space-between",
-                      marginTop:7}} 
+                      marginTop:13}} 
                       onPress={()=>{
                          onClicked(item)
                          props.handleSelect(item)

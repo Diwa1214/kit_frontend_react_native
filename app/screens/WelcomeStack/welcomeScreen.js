@@ -22,22 +22,26 @@ function WelcomeScreen(props) {
 const cardDetails =[
    {
    id:1,  
-   title:"Academic",
-   navigate:"Academic"
+   title:"Attendance",
+   navigate:"Academic",
+   disabled:true,
    },
    {
    id:2, 
-   title:"Placement",
-   navigate:"Placement"
+   title:"Notes",
+   navigate:"Placement",
+   disabled:true,
   },
   {
     id:3,
     title:"Result",
-    navigate:"StudentLogin"
+    navigate:"StudentLogin",
+    disabled:false,
   },
   { id:4,
-    title:"News",
-    navigate:"News"
+    title:"FeedBack",
+    navigate:"News",
+    disabled:true,
   }
 ]
  const _renderItem = ({item, index}, parallaxProps)=> {
@@ -76,7 +80,7 @@ const cardDetails =[
                return (
                 <TouchableOpacity style={styles.DetailsCardContainer} activeOpacity={0.7}  onPress={()=>{
                   props.navigation.navigate(item.navigate)
-                 }}>
+                 }} disabled={item.disabled}>
                   <Text style={styles.cardText}>{item.title}</Text>
                   <MaterialCommunityIcons name="arrow-expand-all"  size={17} color={color.primary}/>
                </TouchableOpacity>

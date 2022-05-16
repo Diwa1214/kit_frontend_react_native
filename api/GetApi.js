@@ -28,7 +28,6 @@ export const GetApi = () => {
      
       //console.log(url,"url");
       const response  = await axios.get(url)
-      
       if(response.data.status == "200"){ 
          setError("")
          setRes(response)
