@@ -7,6 +7,7 @@ import LottieView from "lottie-react-native"
 import { DeleteApi } from '../../../api/DeleteApi'
 import Toast from 'react-native-toast-message'
 import ToastComponent from '../Component/ToastComponent'
+import { Url } from '../../../config'
 
 
 const StaffScreen = (props) => {
@@ -19,7 +20,7 @@ const StaffScreen = (props) => {
     
    useEffect(()=>{
       
-        callback("StudentSearch",text)
+        callback("getStudentSemester",text)
         //Fetch the data
       if(data){
          const dataTime= setTimeout(()=>{
@@ -40,6 +41,20 @@ const StaffScreen = (props) => {
       
       
    },[loading,deleteItem,text])
+
+
+   useEffect(()=>{
+
+    const getData = async()=>{
+      const dataSet = await fetch(`${Url.host}/getStudentSemester`,{
+          method:"GET"
+        })
+       const respoonse = await dataSet.json()
+       console.log(respoonse)
+    }
+
+    getData()
+   },[])
   
    console.log(data,"detard");
 

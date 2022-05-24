@@ -38,6 +38,8 @@ const ResultComponent = (props) => {
    const handleCIA= ()=>{
        setCatVisible(!ciavisible)
    }
+   
+   console.log(data?.SemesterData4?.[0]?.student?.[0] ,"data")
 
 
     return (
@@ -48,14 +50,14 @@ const ResultComponent = (props) => {
                 <Image source={require("../../../assests/welcome-screen.png")} style={Styles.resultImage} />
               </View>
                <View style={{justifyContent:"center",alignItems:"center",marginTop:10}}>
-                 <Text style={Styles.resultName}>{item?.name ? item?.name :"Diwakaram"}</Text>
+                 <Text style={Styles.resultName}>{Object.keys(data).length > 0 ? data?.SemesterData?.[0]?.student?.[0] ||data?.SemesterData2?.[0]?.student?.[0] || data?.SemesterData3?.[0]?.student?.[0] || data?.SemesterData4?.[0]?.student?.[0] ?.["Name of the student"] :"Diwakaram"}</Text>
              </View>
               <View style={{justifyContent:"center",alignItems:"center",marginTop:10}}>
-                 <Text style={Styles.resultName}>{item?.RegNo ?item?.RegNo :"710218310101"}</Text>
-                 <Text style={Styles.tableHeader}>{item?.year?item?.year:"4"}</Text>
+                 <Text style={Styles.resultName}>{Object.keys(data).length > 0 ? data?.SemesterData?.[0]?.student?.[0] ||data?.SemesterData2?.[0]?.student?.[0] || data?.SemesterData3?.[0]?.student?.[0] || data?.SemesterData4?.[0]?.student?.[0] ?.["Register number"] :"710218310101"}</Text>
+                 <Text style={Styles.tableHeader}>{Object.keys(data).length > 0 ? data?.SemesterData?.[0]?.student?.[0] ||data?.SemesterData2?.[0]?.student?.[0] || data?.SemesterData3?.[0]?.student?.[0] || data?.SemesterData4?.[0]?.student?.[0] ?.["S No"] :"1"}</Text>
              </View>
               <View style={{justifyContent:"center",alignItems:"center",marginTop:10}}>
-                <Text style={Styles.resultClg}>{item?.ClgName?item?.ClgName:"KIT"}</Text>
+                <Text style={Styles.resultClg}>{item?.ClgName?item?.ClgName:"KIT "}</Text>
               </View> 
 
               {/* CIA TABLE */}

@@ -2,7 +2,7 @@
  import React,{useEffect,useCallback} from 'react'
  import color from '../../color/color'
  import { AntDesign } from '@expo/vector-icons'
-import { CSESubjects } from '../../data/Grade'
+import { CSESubjects, FirstSemCse } from '../../data/Grade'
 
  
  const SemesterComponent = ({result})=>{
@@ -25,23 +25,25 @@ import { CSESubjects } from '../../data/Grade'
    const [sem8Gpa,setSem8Gpa] = React.useState(null)
     const MarkCalculate = useCallback((data)=>{
         // First semester 
-       if(data[0]?.length > 0){   
-        data[0]?.map((item)=>{
-            
-            let grades = item?.student?.length > 0 ? Object.entries(item?.student[0]) : null
-        return    grades?.map((items1)=>{
-            const grade = CSESubjects.find((i)=>{return i.name === items1[0]})
+       if(data[0]?.length > 0){ 
            
+        data[0]?.map((item)=>{
+            let grades = item?.student?.length > 0 ? Object.entries(item?.student[0]) : null
+        return grades?.map((items1)=>{
+             console.log(items1)
+            const grade = FirstSemCse.find((i)=>{return i.name === items1[0]})
+            console.log(grade)
                if(grade !==undefined){
                    let a = {}
                    a = {...grade}
                    a["grade"] = items1[1]
                    a["subject_grade"] = items1?.[1] === "O" ? 10 : items1?.[1] === "A+" ? 9 : items1?.[1] === "A" ? 8 : items1?.[1] === "B+" ? 7 :items1[1] === "B" ? 6 :null
                    a["total_grade"] =   a?.credit * a.subject_grade 
-                   return sem1.push(a)
+                    sem1.push(a)
+                    console.log(sem1,"sem1")
                }
                else{
-                   return sem1
+                    sem1
                }
             })
     })
@@ -60,10 +62,10 @@ import { CSESubjects } from '../../data/Grade'
                    a["grade"] = items1[1]
                    a["subject_grade"] = items1?.[1] === "O" ? 10 : items1?.[1] === "A+" ? 9 : items1?.[1] === "A" ? 8 : items1?.[1] === "B+" ? 7 :items1[1] === "B" ? 6 :null
                    a["total_grade"] =   a?.credit * a.subject_grade 
-                   return sem2.push(a)
+                    sem2.push(a)
                }
                else{
-                   return sem2
+                    sem2
                }
             })
     })
@@ -82,10 +84,10 @@ import { CSESubjects } from '../../data/Grade'
                    a["grade"] = items1[1]
                    a["subject_grade"] = items1?.[1] === "O" ? 10 : items1?.[1] === "A+" ? 9 : items1?.[1] === "A" ? 8 : items1?.[1] === "B+" ? 7 :items1[1] === "B" ? 6 :null
                    a["total_grade"] =   a?.credit * a.subject_grade 
-                   return sem3.push(a)
+                    sem3.push(a)
                }
                else{
-                   return sem3
+                    sem3
                }
             })
     })
@@ -106,10 +108,10 @@ import { CSESubjects } from '../../data/Grade'
                        a["grade"] = items1[1]
                        a["subject_grade"] = items1?.[1] === "O" ? 10 : items1?.[1] === "A+" ? 9 : items1?.[1] === "A" ? 8 : items1?.[1] === "B+" ? 7 :items1[1] === "B" ? 6 :null
                        a["total_grade"] =   a?.credit * a.subject_grade 
-                       return sem4.push(a)
+                        sem4.push(a)
                    }
                    else{
-                       return sem4
+                       sem4
                    }
                 })
         })
@@ -128,10 +130,10 @@ import { CSESubjects } from '../../data/Grade'
                        a["grade"] = items1[1]
                        a["subject_grade"] = items1?.[1] === "O" ? 10 : items1?.[1] === "A+" ? 9 : items1?.[1] === "A" ? 8 : items1?.[1] === "B+" ? 7 :items1[1] === "B" ? 6 :null
                        a["total_grade"] =   a?.credit * a.subject_grade 
-                       return sem5.push(a)
+                        sem5.push(a)
                    }
                    else{
-                       return sem5
+                        sem5
                    }
                 })
         })
@@ -150,10 +152,10 @@ import { CSESubjects } from '../../data/Grade'
                        a["grade"] = items1[1]
                        a["subject_grade"] = items1?.[1] === "O" ? 10 : items1?.[1] === "A+" ? 9 : items1?.[1] === "A" ? 8 : items1?.[1] === "B+" ? 7 :items1[1] === "B" ? 6 :null
                        a["total_grade"] =   a?.credit * a.subject_grade 
-                       return sem6.push(a)
+                        sem6.push(a)
                    }
                    else{
-                       return sem6
+                        sem6
                    }
                 })
         })
@@ -172,10 +174,10 @@ import { CSESubjects } from '../../data/Grade'
                        a["grade"] = items1[1]
                        a["subject_grade"] = items1?.[1] === "O" ? 10 : items1?.[1] === "A+" ? 9 : items1?.[1] === "A" ? 8 : items1?.[1] === "B+" ? 7 :items1[1] === "B" ? 6 :null
                        a["total_grade"] =   a?.credit * a.subject_grade 
-                       return sem7.push(a)
+                        sem7.push(a)
                    }
                    else{
-                       return sem7
+                        sem7
                    }
                 })                                  
         })
@@ -194,10 +196,10 @@ import { CSESubjects } from '../../data/Grade'
                        a["grade"] = items1[1]
                        a["subject_grade"] = items1?.[1] === "O" ? 10 : items1?.[1] === "A+" ? 9 : items1?.[1] === "A" ? 8 : items1?.[1] === "B+" ? 7 :items1[1] === "B" ? 6 :null
                        a["total_grade"] =   a?.credit * a.subject_grade 
-                       return sem8.push(a)
+                        sem8.push(a)
                    }
                    else{
-                       return sem8
+                        sem8
                    }
                 })
         })
@@ -214,6 +216,17 @@ import { CSESubjects } from '../../data/Grade'
             if(result?.length >0){
                   let m = await MarkCalculate(result)
                   setSemester(m)
+                  if(sem1?.length > 0){
+                        let marks = sem1?.reduce((a,b)=>{
+                            return b.total_grade !== NaN ?  a + b?.total_grade :0
+                    },0)
+                    let give_grade = sem1?.reduce((a,b)=>{
+                        return  a + b.credit 
+                    },0)
+                    let calculatedGrade = marks / give_grade
+                    return setSem4Gpa(calculatedGrade)
+                  }
+
                   if(sem4?.length > 0){
                       let marks = sem4?.reduce((a,b)=>{
                            return b.total_grade !== NaN ?  a + b?.total_grade :0
@@ -222,14 +235,15 @@ import { CSESubjects } from '../../data/Grade'
                          return  a + b.credit 
                     },0)
                     let calculatedGrade = marks / give_grade
-                    setSem4Gpa(calculatedGrade)
+                   return setSem4Gpa(calculatedGrade)
                  }
                }  
         }
          getCalucate()
+        },[result,sem4,sem1,sem3])
 
-
-    },[result,sem4])
+    
+    console.log(sem4Gpa);
 
     
     return (
@@ -277,13 +291,15 @@ import { CSESubjects } from '../../data/Grade'
                   })}
              </View>
             </> :
-                          <View>
-                               <Text>No Semester mark</Text>
+                          <View style={{display:"flex",flex:1,justifyContent:"center",alignItems:"center",height:100}}>
+                               <Text style={{fontSize:15,fontWeight:"700"}}>No Semester mark</Text>
                          </View>}
             
                   
             
-                   
+                   <View style={Styles.GpaContainer}>
+                        <Text style={{fontSize:16,fontWeight:"700"}}>{s?.length > 0 ? `GPA` + " " +  Math.trunc(sem4Gpa) :null}</Text>
+                   </View>
                   </View> 
                )
          })}
@@ -403,14 +419,16 @@ import { CSESubjects } from '../../data/Grade'
 
     },
     ExamName:{
-        flex:0.5,
+        flex:0.7,
+        width:"100%",
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
-        flexWrap:"wrap",
+        // flexWrap:"wrap",
     },
     ExamMark:{
         flex:0.15,
+        // backgroundColor:"green",
         display:"flex",
         justifyContent:"center",
         alignItems:"center",        
@@ -424,5 +442,14 @@ import { CSESubjects } from '../../data/Grade'
     DrakColor:{
         fontSize:14,
         fontWeight:"700"
+    },
+    GpaContainer:{
+        display:"flex",
+        flex:1,
+        width:"95%",
+        justifyContent:"flex-end",
+        alignItems:"flex-end",
+        padding:10
+
     }
  })

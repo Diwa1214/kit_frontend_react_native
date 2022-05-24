@@ -28,7 +28,7 @@ const Stack = createNativeStackNavigator()
  export const AdminStackNavigator = ()=>{
      return(
 
-        <Stack.Navigator screenOptions={{headerShown:true,headerStyle:{
+        <Stack.Navigator screenOptions={{headerShown:false,headerStyle:{
             backgroundColor:color.primary
         },headerTintColor:"white",headerTitleStyle:{
             fontSize:18,

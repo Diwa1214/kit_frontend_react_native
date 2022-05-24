@@ -4,10 +4,14 @@ import { MaterialCommunityIcons } from "@expo/vector-icons"
 import WelcomeScreen from "../screens/WelcomeStack/welcomeScreen"
 import React from "react"
 import { AccountScreenNavigator, AdminStackNavigator } from "./ScreenNavigator"
+import { AuthContext } from "../screens/Context/AuthContext"
 
 const tab = createBottomTabNavigator()
 
 export const TabNavigator =()=>{
+   const {user} = React.useContext(AuthContext)
+   console.log(user,"user")
+
     return (
        <tab.Navigator 
        screenOptions={{ 
@@ -28,13 +32,13 @@ export const TabNavigator =()=>{
             },
             headerTintColor:"white"
            }} />
-           <tab.Screen name="Admin" component={AdminStackNavigator} options={{
+           {user?.staff ?<tab.Screen name="Admin" component={AdminStackNavigator} options={{
             tabBarIcon:({size,color})=>{
                return <MaterialCommunityIcons name="home" size={size} color={color}/>
             },
             headerPressColor:"blue",
             headerShown:false,
-           }} />
+           }} /> :null}
   
            {/*<tab.Screen name="Home" component={HomeNavigator}  options={({navigation})=>({
                

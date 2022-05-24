@@ -10,7 +10,7 @@ export const CSESubjects = [
         code:"B19CSP401",
         credit:2,
     }, {
-        name:"B19CSP402- Java Programming Laboratory",
+        name:"  ",
         code:"B19CSP402",
         credit:2,
     }, {
@@ -39,4 +39,40 @@ export const CSESubjects = [
         credit:0,
     },
     
+]
+
+
+export const FirstSemCse = [
+    {
+        name:"B19ENT101FE",
+        credit:3
+    },
+    {
+        name:"B19MAT101MDC",
+        credit:4
+    },
+    {
+        name:"B19PHT101EP",
+        credit:3
+    },
+    {
+        name:"B19CST101PSPP",
+        credit:3
+    },
+    {
+        name:"B19MET101EG",
+        credit:4
+    },
+    {
+        name:"B19PHP101PHY Lab",
+        credit:2
+    },
+    {
+        name:"B19CSP101PSPP Lab",
+        credit:2
+    },
+    {
+        name:"B19MCP101LS Lab",
+        credit:0
+    }
 ]

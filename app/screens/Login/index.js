@@ -70,7 +70,6 @@ const index = (props) => {
           text2: `${error}`,
           onHide: () => {
             SetNumber(1)
-            
           },
         });
        

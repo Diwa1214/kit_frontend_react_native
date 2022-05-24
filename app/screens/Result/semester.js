@@ -79,14 +79,15 @@ const SemesterScreenComponent = (props) => {
       uri:file.uri
     }) 
      if(sem == "Semester 1" ){
-        let {status,data} = await NetworkPostCall("semester1")
+         console.log("sem1")
+         await NetworkPostCall("semester1",form)
      }
      else if(sem == "Semester 2"){
-        let {status,data} = await NetworkPostCall("semester2")
+         await NetworkPostCall("semester2",form)
 
      }
      else if(sem == "Semester 3"){
-        let {status,data} = await NetworkPostCall("semester3")
+         await NetworkPostCall("semester3",form)
 
      }
      else if(sem == "Semester 4"){
@@ -97,19 +98,19 @@ const SemesterScreenComponent = (props) => {
         // }
      }
      else if(sem == "Semester 5"){
-        let {status,data} = await NetworkPostCall("semester5")
+         await NetworkPostCall("semester5",form)
 
      }
      else if(sem == "Semester 6"){
-        let {status,data} = await NetworkPostCall("semester6")
+         await NetworkPostCall("semester6",form)
 
      }
      else if(sem == "Semester 7"){
-        let {status,data} = await NetworkPostCall("semester7")
+         await NetworkPostCall("semester7",form)
 
      }
      else if(sem == "Semester 8"){
-        let {status,data} = await NetworkPostCall("semester8")
+         await NetworkPostCall("semester8",form)
 
      }
    }

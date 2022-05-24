@@ -13,6 +13,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import color from "../screens/color/color"
 import { TabNavigator } from "./TabNavigator"
 import ResultComponent from "../screens/WelcomeStack/component/ResultComponent"
+import { DrawerNavigator } from "./DrawerNavigator"
 
 const Stack = createNativeStackNavigator()
 
@@ -22,7 +23,7 @@ const tab = createBottomTabNavigator()
  const HomeScreenNavigator = ()=>{
    return(
   <Stack.Navigator>
-      <Stack.Screen name="home" component={TabNavigator} 
+      <Stack.Screen name="Home" component={DrawerNavigator} 
       options={{headerShown:false,headerStyle:{backgroundColor:color.primary},headerTintColor:"white"}}/>
 
       <Stack.Screen name="Academic" component={AcademicScreen} options={{headerShown:true}} 

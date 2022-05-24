@@ -1,9 +1,19 @@
-import { StyleSheet, Text, View,TextInput,ScrollView } from 'react-native'
+import { StyleSheet, Text, View,TextInput,ScrollView,TouchableOpacity} from 'react-native'
 import React from 'react'
 import { Formik } from 'formik'
 import color from '../color/color'
+import authStorage from '../Storage/authStorage'
+import { AuthContext } from '../Context/AuthContext'
+import { useNavigation } from '@react-navigation/native'
 
 const Profile = (props) => {
+  const {setUser,user} = React.useContext(AuthContext)
+  const navigation = useNavigation()
+  const Logout = ()=>{
+   authStorage.deleteToken()
+   setUser(null)
+   navigation.navigate("login")
+  }
 
   return (
     <View style={styles.root}>
@@ -14,8 +24,33 @@ const Profile = (props) => {
            {({})=>{
               return (
                  <ScrollView style={styles.TextFieldContainer}>
-                  
+                     {user?.staff ? 
+                     <>
                      <View style={styles.Box}>
+                        <View style={styles.LableContainer}>
+                          <Text style={styles.labelName}>Profession</Text>
+                       </View>
+                        <View style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                            <TextInput style={styles.TextField}    />
+                        </View>
+                     </View>
+         
+      
+                     <View style={styles.Box}>
+                        <View style={styles.LableContainer}>
+                          <Text style={styles.labelName}>phone Number</Text>
+                       </View>
+                        <View style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                            <TextInput style={styles.TextField}   />
+                        </View>
+                     </View>
+       
+               
+                     
+                     
+                     </> : 
+                     <>
+                    <View style={styles.Box}>
                         <View style={styles.LableContainer}>
                           <Text style={styles.labelName}>name</Text>
                        </View>
@@ -103,6 +138,13 @@ const Profile = (props) => {
                             <TextInput style={styles.TextField}   />
                         </View>
                      </View>
+                     
+                     </> }
+                     <View style={styles.LogoutContainer}>
+                         <TouchableOpacity style={styles.logout} onPress={Logout}>
+                               <Text style={styles.LogoutText}>Logout</Text>
+                         </TouchableOpacity>
+                     </View>
                     
                      {/* <View style={styles.Box}>
                         <View style={styles.LableContainer}>
@@ -159,5 +201,25 @@ const styles = StyleSheet.create({
   },
   Box:{
     marginTop:10
+  },
+  LogoutContainer:{
+     display:"flex",
+     flex:1,
+     justifyContent:"center",
+     alignItems:"center",
+     marginTop:20
+  },
+  logout:{
+     width:"50%",
+     display:"flex",
+     justifyContent:"center",
+     alignItems:"center",
+     backgroundColor:color.primary,
+     height:50,
+     borderRadius:6
+  },
+  LogoutText:{
+     color:"white",
+     fontWeight:"700"
   }
 })

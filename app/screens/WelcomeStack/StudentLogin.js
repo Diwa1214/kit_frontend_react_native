@@ -15,6 +15,7 @@ import { useNavigation } from '@react-navigation/native'
 
 const StudentLogin = (props) => {
  const [number,SetNumber] = React.useState(1)
+
  const [visible,setVisible] = React.useState(false)
  const [yearVisiblity,setyearVisiblity] =  React.useState(false)
  const navigate = useNavigation()
@@ -31,12 +32,21 @@ const StudentLogin = (props) => {
     try{
       const semester = await fetch(`${Url.host}/getSemester?reg=${value.regno}`)
       const response = await semester.json()
+      console.log(response)
       if(semester.ok && semester.status === 200){
-        console.log(response)
           navigate.navigate("Result",{student:response})
       }
       else{
-         console.log("not_founds",response)
+        Toast.show({
+          position: 'top',
+          text1: 'Error message',
+          text2: `${response?.message}`,
+          onHide: () => {
+            SetNumber(1)
+          },
+        });
+       
+        SetNumber(0.3)
       }
      }
     catch(error){
@@ -50,7 +60,7 @@ const StudentLogin = (props) => {
     <BaseToast
       {...rest}
       style={{ borderLeftColor: 'red'}}
-      contentContainerStyle={{ paddingHorizontal: 15 }}
+      contentContainerStyle={{ paddingHorizontal: 15}}
       text1Style={{
         fontSize: 17,
         fontWeight: 'bold'
